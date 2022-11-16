@@ -1,38 +1,43 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<String> name = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        //String name = new String();
+        ArrayList<String> A = new ArrayList<>();
+        ArrayList<String> B = new ArrayList<>();
+        ArrayList<String> nameC = new ArrayList<>();
 
-        System.out.println("Список А");
-        for (int i = 0; i <= 4; i++) {
-            name.size();
-
-            if (name.size() <= 0) {
-                scanner.next();
-//                System.out.println(name);
-            }
+        for (int i = 0; i < 5; i++) {
+            A.add(scanner.nextLine());
         }
-        ArrayList<String> name2 = new ArrayList<>();
-        name2.add("Alex");
+        System.out.println(A);
 
-        System.out.println("Список Б");
-        for (int i = 0; i <= 4; i++) {
-            name2.size();
-
-            if (name2.size() <= 0) {
-                scanner.next();
-            }
+        for (int i = 0; i < 5; i++) {
+            B.add(scanner.nextLine());
         }
-        name.addAll(name2);
-        System.out.println("Список С");
-        System.out.println("Список А " +  name2);
-//        name2.add("Alex");
-        System.out.println("Список Б");
+        System.out.println(B);
 
-//        scanner.next();
+        Collections.reverse(B);
+        System.out.println(B);
+
+        Integer x = 0;
+        while (nameC.size()<A.size() + B.size()){
+            nameC.add(A.get(x));
+            nameC.add(B.get(x));
+            x++;
+        }
+        nameC.add(A.get(0));
+        nameC.add(B.get(1));
+        System.out.println(nameC);
+        Collections.sort(nameC, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.length()-o2.length();
+            }
+        });
+        System.out.println(nameC);
     }
 }
